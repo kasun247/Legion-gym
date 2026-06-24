@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Editor / local tooling
+.vscode/
+.idea/
+*.log
+
+# Claude Code local preview helpers (not part of the site)
+.claude/
+
+# Node (none used, but safe)
+node_modules/
+
+# Pages build output
+_site/
