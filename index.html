@@ -1,76 +1,682 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>My First Website</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0E0E10" />
+  <title>LEGION — Strength · Conditioning · Community</title>
+  <meta name="description" content="LEGION is a premium strength and conditioning gym in Nugegoda, Colombo. Expert coaches, personalised programs, and a community built to push limits." />
 
+  <!-- Brand favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Social share (Open Graph + Twitter) — replace og:url with your live domain -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LEGION — Unleash Your Strength" />
+  <meta property="og:description" content="Premium strength & conditioning gym in Nugegoda, Colombo. Expert coaches, personalised programs, real results." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:url" content="https://your-domain.example" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LEGION — Unleash Your Strength" />
+  <meta name="twitter:description" content="Premium strength & conditioning gym in Nugegoda, Colombo. Expert coaches, personalised programs, real results." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- ============================================================
+       FONTS  (swap here to rebrand typography)
+       Display: Anton  ·  Headings: Archivo  ·  Body/UI: Inter
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div id="container">
-    <div class="header">
-      <h1>My first Website</h1>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#hero">Skip to content</a>
 
+  <!-- ============================================================
+       0 · ANNOUNCEMENT BAR  (thin, dismissible)
+       ============================================================ -->
+  <div class="announce" id="announce" role="region" aria-label="Site announcement">
+    <div class="announce__inner">
+      <p class="announce__text">
+        Free trial week — limited slots this month.
+        <a class="announce__link" href="#cta">Book now&nbsp;→</a>
+      </p>
+      <button class="announce__close" id="announceClose" type="button" aria-label="Dismiss announcement">×</button>
     </div>
+  </div>
 
-    <div id="content">
-      <div id="nav">
-        <h3>Navigation</h3>
+  <!-- ============================================================
+       1 · NAVBAR  (sticky; transparent over hero → solid on scroll)
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#hero" aria-label="LEGION home">LEGION</a>
 
-        <ul>
-          <li><a class="selected" href="http://localhost/testsite/index.html">Home</a> </li>
-          <li><a class="selected" href=""></a>About Us</li>
-          <li><a class="selected" href=""></a>Contact</li>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#programs">Programs</a>
+        <a href="#method">Method</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
 
+      <div class="nav__actions">
+        <a class="btn btn--accent btn--sm nav__cta" href="#pricing">Join Now</a>
+        <button class="nav__burger" id="navBurger" type="button"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-        </ul>
+  <!-- Full-screen mobile overlay menu -->
+  <div class="menu" id="mobileMenu" aria-hidden="true">
+    <nav class="menu__nav" aria-label="Mobile">
+      <a href="#programs">Programs</a>
+      <a href="#method">Method</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--accent menu__cta" href="#pricing">Join Now</a>
+    </nav>
+    <p class="menu__meta">Nugegoda, Colombo · Mon–Sun</p>
+  </div>
 
+  <main>
+    <!-- ============================================================
+         2 · HERO  (full-viewport, video bg + dark overlay)
+         ============================================================ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__media">
+        <video class="hero__video" id="heroVideo"
+               autoplay muted loop playsinline preload="none"
+               poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=70">
+          <!-- Swap this clip in one place. If it fails to load, the poster image remains. -->
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-man-training-with-a-rope-in-a-gym-23769-large.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__overlay" aria-hidden="true"></div>
       </div>
 
-      <div id="main">
-        <h2>Home Page</h2>
-
-        <img class="sri"  src="img/bookshelves.jpg" alt="..." class="img-thumbnail"> 
-        <img class="mainimage" src="img/sri-lanka.jpg" class="img-fluid" alt="Responsive image">
-
-
-        ` <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,
+      <div class="hero__content">
+        <p class="eyebrow hero__eyebrow">Strength · Conditioning · Community</p>
+        <h1 class="hero__title">Unleash Your Strength.<br />Transform Your Life.</h1>
+        <p class="hero__sub">
+          Expert coaches guide you every step of the way — so you get stronger,
+          fitter, and healthier, faster.
         </p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,</p>
 
+        <div class="hero__actions">
+          <a class="btn btn--accent" href="#pricing">Join Now</a>
+          <a class="btn btn--ghost" href="#cta">Book a Free Trial</a>
+        </div>
 
+        <div class="hero__trust">
+          <div class="avatars" aria-hidden="true">
+            <img class="avatars__img" data-img="avatar1" width="44" height="44" alt="" />
+            <img class="avatars__img" data-img="avatar2" width="44" height="44" alt="" />
+            <img class="avatars__img" data-img="avatar3" width="44" height="44" alt="" />
+            <img class="avatars__img" data-img="avatar4" width="44" height="44" alt="" />
+          </div>
+          <p class="hero__rating"><strong>4.9 ★</strong> from 500+ members</p>
+        </div>
       </div>
 
+      <a class="hero__cue" href="#stats" aria-label="Scroll to content">
+        <span class="hero__cue-dot"></span>
+        Scroll
+      </a>
+    </section>
 
+    <!-- ============================================================
+         3 · STATS STRIP  (count-up on scroll-in)
+         ============================================================ -->
+    <section class="stats" id="stats" aria-label="Gym in numbers">
+      <div class="container stats__grid">
+        <div class="stat reveal">
+          <span class="stat__num" data-count="8" data-suffix=" Yrs">0</span>
+          <span class="stat__label">Years Open</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="500" data-suffix="+">0</span>
+          <span class="stat__label">Members</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="12" data-suffix="">0</span>
+          <span class="stat__label">Expert Coaches</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="40" data-suffix="k+">0</span>
+          <span class="stat__label">Sessions Delivered</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4 · PROGRAMS  (3 editorial cards)
+         ============================================================ -->
+    <section class="section programs" id="programs" aria-label="Training programs">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">What We Offer</p>
+          <h2 class="section__title">Training Programs to Fit Every Goal</h2>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <a class="card__media" href="#cta" aria-label="Explore Strength &amp; Muscle Building">
+              <img data-img="progStrength" width="800" height="1000" alt="" loading="lazy" />
+            </a>
+            <div class="card__body">
+              <h3 class="card__title">Strength &amp; Muscle Building</h3>
+              <p class="card__desc">Progressive strength training built around your capacity and goals.</p>
+              <a class="link-accent" href="#cta">Explore&nbsp;→</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <a class="card__media" href="#cta" aria-label="Explore Fat Loss &amp; Conditioning">
+              <img data-img="progFatLoss" width="800" height="1000" alt="" loading="lazy" />
+            </a>
+            <div class="card__body">
+              <h3 class="card__title">Fat Loss &amp; Conditioning</h3>
+              <p class="card__desc">High-intensity circuits and metabolic workouts that burn fat and build stamina.</p>
+              <a class="link-accent" href="#cta">Explore&nbsp;→</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <a class="card__media" href="#cta" aria-label="Explore Functional &amp; Mobility">
+              <img data-img="progFunctional" width="800" height="1000" alt="" loading="lazy" />
+            </a>
+            <div class="card__body">
+              <h3 class="card__title">Functional &amp; Mobility</h3>
+              <p class="card__desc">Move better and perform stronger in everyday life with mobility-focused training.</p>
+              <a class="link-accent" href="#cta">Explore&nbsp;→</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5 · METHOD  (4 numbered, staggered steps)
+         ============================================================ -->
+    <section class="section method" id="method" aria-label="How it works">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">How It Works</p>
+          <h2 class="section__title">Your Path to Results</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <div class="step__media"><img data-img="step1" width="640" height="440" alt="" loading="lazy" /></div>
+            <div class="step__text">
+              <h3 class="step__title">Initial Assessment</h3>
+              <p>We start by understanding your fitness level, goals, and lifestyle.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <div class="step__media"><img data-img="step2" width="640" height="440" alt="" loading="lazy" /></div>
+            <div class="step__text">
+              <h3 class="step__title">Guided Training</h3>
+              <p>Train with expert coaches who keep your form correct and your progress safe.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <div class="step__media"><img data-img="step3" width="640" height="440" alt="" loading="lazy" /></div>
+            <div class="step__text">
+              <h3 class="step__title">Personalised Plan</h3>
+              <p>We craft a workout plan around your assessment and coach you through it.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">04</span>
+            <div class="step__media"><img data-img="step4" width="640" height="440" alt="" loading="lazy" /></div>
+            <div class="step__text">
+              <h3 class="step__title">Progress Tracking</h3>
+              <p>We monitor performance, adjust your plan, and celebrate every milestone.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6 · RESULTS  (3 member transformations)
+         ============================================================ -->
+    <section class="section results" id="results" aria-label="Member results">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Results</p>
+          <h2 class="section__title">Real Progress, Measured</h2>
+        </header>
+
+        <div class="cards cards--3">
+          <article class="result reveal">
+            <div class="result__media">
+              <figure class="ba">
+                <img data-img="andrewBefore" width="400" height="500" alt="" loading="lazy" />
+                <figcaption class="ba__tag">Before</figcaption>
+              </figure>
+              <figure class="ba">
+                <img data-img="andrewAfter" width="400" height="500" alt="" loading="lazy" />
+                <figcaption class="ba__tag ba__tag--after">After</figcaption>
+              </figure>
+            </div>
+            <div class="result__body">
+              <h3 class="result__name">Andrew M. <span>· 35</span></h3>
+              <p class="result__meta">16 weeks · Strength &amp; Muscle</p>
+              <p class="result__metric"><span>95<small>kg</small></span> → <strong>78<small>kg</small></strong></p>
+            </div>
+          </article>
+
+          <article class="result reveal">
+            <div class="result__media">
+              <figure class="ba">
+                <img data-img="dinithiBefore" width="400" height="500" alt="" loading="lazy" />
+                <figcaption class="ba__tag">Before</figcaption>
+              </figure>
+              <figure class="ba">
+                <img data-img="dinithiAfter" width="400" height="500" alt="" loading="lazy" />
+                <figcaption class="ba__tag ba__tag--after">After</figcaption>
+              </figure>
+            </div>
+            <div class="result__body">
+              <h3 class="result__name">Dinithi P. <span>· 29</span></h3>
+              <p class="result__meta">12 weeks · Fat Loss &amp; Conditioning</p>
+              <p class="result__metric"><span>71<small>kg</small></span> → <strong>61<small>kg</small></strong></p>
+            </div>
+          </article>
+
+          <article class="result reveal">
+            <div class="result__media">
+              <figure class="ba">
+                <img data-img="marcusBefore" width="400" height="500" alt="" loading="lazy" />
+                <figcaption class="ba__tag">Before</figcaption>
+              </figure>
+              <figure class="ba">
+                <img data-img="marcusAfter" width="400" height="500" alt="" loading="lazy" />
+                <figcaption class="ba__tag ba__tag--after">After</figcaption>
+              </figure>
+            </div>
+            <div class="result__body">
+              <h3 class="result__name">Marcus R. <span>· 41</span></h3>
+              <p class="result__meta">20 weeks · Functional &amp; Strength</p>
+              <p class="result__metric"><span>102<small>kg</small></span> → <strong>84<small>kg</small></strong></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7 · COACHES  (4 distinct people)
+         ============================================================ -->
+    <section class="section coaches" id="coaches" aria-label="Coaching team">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">The Team</p>
+          <h2 class="section__title">Meet Your Coaches</h2>
+        </header>
+
+        <div class="cards cards--4">
+          <article class="coach reveal">
+            <div class="coach__media"><img data-img="coachPrasanna" width="600" height="720" alt="" loading="lazy" /></div>
+            <div class="coach__body">
+              <h3 class="coach__name">Prasanna D.</h3>
+              <p class="coach__role">Head Coach</p>
+              <p class="coach__spec">Strength &amp; Powerlifting</p>
+              <a class="coach__ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Prasanna D. on Instagram">Instagram&nbsp;↗</a>
+            </div>
+          </article>
+
+          <article class="coach reveal">
+            <div class="coach__media"><img data-img="coachKalana" width="600" height="720" alt="" loading="lazy" /></div>
+            <div class="coach__body">
+              <h3 class="coach__name">Kalana W.</h3>
+              <p class="coach__role">Performance Coach</p>
+              <p class="coach__spec">Conditioning &amp; HIIT</p>
+              <a class="coach__ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Kalana W. on Instagram">Instagram&nbsp;↗</a>
+            </div>
+          </article>
+
+          <article class="coach reveal">
+            <div class="coach__media"><img data-img="coachNadia" width="600" height="720" alt="" loading="lazy" /></div>
+            <div class="coach__body">
+              <h3 class="coach__name">Nadia F.</h3>
+              <p class="coach__role">Mobility Coach</p>
+              <p class="coach__spec">Functional &amp; Rehab</p>
+              <a class="coach__ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Nadia F. on Instagram">Instagram&nbsp;↗</a>
+            </div>
+          </article>
+
+          <article class="coach reveal">
+            <div class="coach__media"><img data-img="coachRuwan" width="600" height="720" alt="" loading="lazy" /></div>
+            <div class="coach__body">
+              <h3 class="coach__name">Ruwan S.</h3>
+              <p class="coach__role">Nutrition Coach</p>
+              <p class="coach__spec">Body Recomposition</p>
+              <a class="coach__ig" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Ruwan S. on Instagram">Instagram&nbsp;↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8 · GALLERY  (auto-scrolling marquee, pause on hover)
+         ============================================================ -->
+    <section class="section gallery" id="gallery" aria-label="Inside the gym">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Inside LEGION</p>
+          <p class="gallery__caption">Where strength meets style — built to push limits and inspire every rep.</p>
+        </header>
+      </div>
+
+      <div class="marquee" id="marquee">
+        <div class="marquee__track">
+          <!-- set A -->
+          <figure class="marquee__item"><img data-img="gal1" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item"><img data-img="gal2" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item"><img data-img="gal3" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item"><img data-img="gal4" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item"><img data-img="gal5" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item"><img data-img="gal6" width="520" height="380" alt="" loading="lazy" /></figure>
+          <!-- set B (duplicate for seamless loop; hidden from AT) -->
+          <figure class="marquee__item" aria-hidden="true"><img data-img="gal1" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item" aria-hidden="true"><img data-img="gal2" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item" aria-hidden="true"><img data-img="gal3" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item" aria-hidden="true"><img data-img="gal4" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item" aria-hidden="true"><img data-img="gal5" width="520" height="380" alt="" loading="lazy" /></figure>
+          <figure class="marquee__item" aria-hidden="true"><img data-img="gal6" width="520" height="380" alt="" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9 · PRICING  (3 tiers + monthly/annual toggle)
+         ============================================================ -->
+    <section class="section pricing" id="pricing" aria-label="Membership pricing">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Membership</p>
+          <h2 class="section__title">Choose Your Plan</h2>
+
+          <div class="toggle" role="group" aria-label="Billing period">
+            <span class="toggle__opt is-active" id="lblMonthly">Monthly</span>
+            <button class="toggle__switch" id="billingToggle" type="button"
+                    role="switch" aria-checked="false" aria-label="Switch to annual billing">
+              <span class="toggle__knob"></span>
+            </button>
+            <span class="toggle__opt" id="lblAnnual">Annual <em class="toggle__save">2 months free</em></span>
+          </div>
+        </header>
+
+        <div class="cards cards--3 plans">
+          <!-- Starter -->
+          <article class="plan reveal">
+            <h3 class="plan__name">Starter</h3>
+            <p class="plan__price">
+              <span class="plan__currency">Rs.</span>
+              <span class="plan__amount" data-monthly="8000">8,000</span>
+              <span class="plan__period">/mo</span>
+            </p>
+            <p class="plan__note" data-note></p>
+            <ul class="plan__features">
+              <li>Full gym access</li>
+              <li>Group classes</li>
+              <li>Locker facility</li>
+              <li>Mobile check-in</li>
+            </ul>
+            <a class="btn btn--ghost plan__cta" href="#cta">Join Now</a>
+          </article>
+
+          <!-- Pro (highlighted) -->
+          <article class="plan plan--featured reveal">
+            <span class="plan__ribbon">Most popular</span>
+            <h3 class="plan__name">Pro</h3>
+            <p class="plan__price">
+              <span class="plan__currency">Rs.</span>
+              <span class="plan__amount" data-monthly="12000">12,000</span>
+              <span class="plan__period">/mo</span>
+            </p>
+            <p class="plan__note" data-note></p>
+            <ul class="plan__features">
+              <li>Everything in Starter</li>
+              <li>Personal workout plan</li>
+              <li>Weekly progress tracking</li>
+              <li>1 PT session / month</li>
+            </ul>
+            <a class="btn btn--accent plan__cta" href="#cta">Join Now</a>
+          </article>
+
+          <!-- Elite -->
+          <article class="plan reveal">
+            <h3 class="plan__name">Elite</h3>
+            <p class="plan__price">
+              <span class="plan__currency">Rs.</span>
+              <span class="plan__amount" data-monthly="18000">18,000</span>
+              <span class="plan__period">/mo</span>
+            </p>
+            <p class="plan__note" data-note></p>
+            <ul class="plan__features">
+              <li>Everything in Pro</li>
+              <li>Weekly 1-on-1 coaching</li>
+              <li>Nutrition plan</li>
+              <li>Recovery &amp; sauna access</li>
+            </ul>
+            <a class="btn btn--ghost plan__cta" href="#cta">Join Now</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10 · TESTIMONIALS  (slider + Google rating badge)
+         ============================================================ -->
+    <section class="section testimonials" id="testimonials" aria-label="Member testimonials">
+      <div class="container">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="eyebrow">What Members Say</p>
+            <h2 class="section__title">Trusted by Many, Loved by All</h2>
+          </div>
+          <p class="gbadge"><span class="gbadge__g">G</span> Google rating <strong>4.9 ★</strong></p>
+        </header>
+
+        <div class="slider" id="testimonialSlider">
+          <div class="slider__viewport">
+            <ul class="slider__track">
+              <li class="tcard">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote class="tcard__quote">“Best gym in Nugegoda. Great equipment, amazing coaches, and ample parking.”</blockquote>
+                <div class="tcard__person">
+                  <img data-img="testLiyoni" width="56" height="56" alt="" loading="lazy" />
+                  <div>
+                    <p class="tcard__name">Liyoni S.</p>
+                    <p class="tcard__role">Member, 2 yrs</p>
+                  </div>
+                </div>
+              </li>
+              <li class="tcard">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote class="tcard__quote">“Coach Kalana gives clear instructions and builds a schedule that fits my goals. Highly recommend.”</blockquote>
+                <div class="tcard__person">
+                  <img data-img="testVimukthi" width="56" height="56" alt="" loading="lazy" />
+                  <div>
+                    <p class="tcard__name">Vimukthi P.</p>
+                    <p class="tcard__role">Member</p>
+                  </div>
+                </div>
+              </li>
+              <li class="tcard">
+                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote class="tcard__quote">“Modern equipment, always clean, never overcrowded. The atmosphere is vibrant yet classy.”</blockquote>
+                <div class="tcard__person">
+                  <img data-img="testNadun" width="56" height="56" alt="" loading="lazy" />
+                  <div>
+                    <p class="tcard__name">Nadun S.</p>
+                    <p class="tcard__role">Designer</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="slider__controls">
+            <button class="slider__btn" id="tPrev" type="button" aria-label="Previous testimonial">←</button>
+            <div class="slider__dots" id="tDots" role="tablist" aria-label="Choose testimonial"></div>
+            <button class="slider__btn" id="tNext" type="button" aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11 · FAQ  (accordion) — wired to the nav "FAQ" link
+         ============================================================ -->
+    <section class="section faq" id="faq" aria-label="Frequently asked questions">
+      <div class="container faq__layout">
+        <header class="section__head faq__head">
+          <p class="eyebrow">Questions</p>
+          <h2 class="section__title">Frequently Asked</h2>
+        </header>
+
+        <div class="acc" id="acc">
+          <div class="acc__item reveal">
+            <h3>
+              <button class="acc__trigger" type="button" aria-expanded="false">
+                Do I need experience to start? <span class="acc__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="acc__panel"><p>Not at all. Every member begins with an assessment, and our coaches scale each program to your current level.</p></div>
+          </div>
+          <div class="acc__item reveal">
+            <h3>
+              <button class="acc__trigger" type="button" aria-expanded="false">
+                What does the free trial week include? <span class="acc__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="acc__panel"><p>Full gym access, two group classes, and one guided session with a coach — so you can feel the LEGION difference before committing.</p></div>
+          </div>
+          <div class="acc__item reveal">
+            <h3>
+              <button class="acc__trigger" type="button" aria-expanded="false">
+                Can I freeze or cancel my membership? <span class="acc__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="acc__panel"><p>Yes. You can freeze your plan for up to two months a year, and cancel anytime with 30 days' notice — no lock-in contracts.</p></div>
+          </div>
+          <div class="acc__item reveal">
+            <h3>
+              <button class="acc__trigger" type="button" aria-expanded="false">
+                Are personal training sessions included? <span class="acc__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="acc__panel"><p>Pro includes one PT session a month; Elite includes weekly 1-on-1 coaching. Starter members can add sessions à la carte.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12 · FINAL CTA BAND  (lead form)
+         ============================================================ -->
+    <section class="cta" id="cta" aria-label="Start your journey">
+      <div class="container cta__inner">
+        <div class="cta__copy">
+          <h2 class="cta__title">Start Your Journey Today</h2>
+          <p class="cta__sub">Unleash your potential with Legion Fitness.</p>
+          <p class="cta__loc">📍 Nugegoda, Colombo, Sri Lanka</p>
+        </div>
+
+        <form class="cta__form" id="leadForm" novalidate>
+          <div class="field">
+            <label for="leadName">Name</label>
+            <input id="leadName" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="leadEmail">Email</label>
+            <input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+          <div class="field">
+            <label for="leadGoal">Your goal</label>
+            <select id="leadGoal" name="goal" required>
+              <option value="muscle">Build muscle</option>
+              <option value="fat">Lose fat</option>
+              <option value="fitter">Get fitter</option>
+            </select>
+          </div>
+          <button class="btn btn--accent cta__submit" type="submit">Get Started</button>
+          <p class="cta__success" id="formSuccess" role="status" hidden>Thanks — we'll be in touch within one business day.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="footer__wordmark" href="#hero">LEGION</a>
+        <p class="footer__tag">Where strength meets style.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Explore">
+        <h3 class="footer__title">Explore</h3>
+        <a href="#programs">Programs</a>
+        <a href="#method">Method</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Company">
+        <h3 class="footer__title">Company</h3>
+        <a href="#hero">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#cta">Contact</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Connect">
+        <h3 class="footer__title">Connect</h3>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a>
+      </nav>
+
+      <div class="footer__col footer__contact">
+        <h3 class="footer__title">Visit &amp; Contact</h3>
+        <a href="mailto:hello@legionfitness.lk">hello@legionfitness.lk</a>
+        <a href="tel:+94112345678">+94 11 234 5678</a>
+        <p>Nugegoda, Colombo</p>
+        <p class="footer__hours">Mon–Fri 5:00–22:00<br />Sat–Sun 7:00–20:00</p>
+      </div>
     </div>
 
-    <div class="container my container">
-
-
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Legion Fitness</p>
+      <div class="footer__legal">
+        <a href="#hero">Privacy</a>
+        <a href="#hero">Terms</a>
+      </div>
     </div>
+  </footer>
 
-    </div>
-
-    <div id="footer">
-      <p>Copyrights; 2020 Jake parkour</p>
-    </div>
-
-
+  <script src="script.js"></script>
 </body>
-
 </html>
